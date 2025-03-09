@@ -1,0 +1,25 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Indexer Project</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-500 font-serif leading-normal tracking-normal w-screen h-screen">
+
+		<!-- Navigation Bar -->
+		<nav class="bg-zinc-600 p-3">
+			<a href="/" class="text-white px-4">Home</a>
+			<a href="/blocks/" class="text-white px-4">Blocks</a>
+			<a href="/transactions/" class="text-white px-4">Transactions</a>
+		</nav>
+		
+		<div class="flex items-center justify-center mt-[250px]">
+			<h1> Welcome to Migaloo! </h1>
+		</div>
+	</body>
+</html>

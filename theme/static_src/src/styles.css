@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .width-block-min-custom {
+        width: max(200px, 48vw);
+    }
+
+    @media (min-width: 868px) {
+        .width-block-min-custom {
+            width: max(1px, 24vw);
+        }
+    }
+
+    .width-table-min-custom {
+        width: max(200px, 97.69vw);
+    }
+}

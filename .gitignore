@@ -1,0 +1,11 @@
+# Remove Pycaches
+django_indexer_web_app/__pycache__/
+django_indexer_web_app/migrations/__pycache__/
+django_indexer_web_project/__pycache__/
+theme/__pycache__/
+
+# Remove info.json
+info.json
+
+# Remove TaskList.md
+TaskList.md

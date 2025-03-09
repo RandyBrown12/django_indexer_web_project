@@ -1,0 +1,29 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Indexer Project</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-500 font-serif leading-normal tracking-normal">
+
+		<!-- Navigation Bar -->
+		<nav class="bg-zinc-600 p-3">
+			<a href="/" class="text-white px-4">Home</a>
+			<a href="/blocks/" class="text-white px-4">Blocks</a>
+			<a href="/transactions/" class="text-white px-4">Transactions</a>
+		</nav>
+		
+		<div class="grid items-center justify-center mt-[50px]">
+			<h1> Transactions Summary </h1>
+            <h1> Total Transactions </h1>
+            <h1> Transactions (30d) </h1>
+            <h1> Transaction (Yesterday) </h1>
+            <h1> Transactions per second (Last 20 blocks) </h1>
+		</div>
+	</body>
+</html>
