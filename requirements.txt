@@ -1,4 +1,5 @@
 Django
 django-tailwind
 graphene-django
+django-browser-reload
 bs4
