@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cambo&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    * {
+        @apply font-nunito-sans;
+    }
+}
 @layer utilities {
+
     .width-block-min-custom {
         width: max(200px, 48vw);
     }
@@ -14,6 +21,18 @@
     }
 
     .width-table-min-custom {
-        width: max(200px, 97.69vw);
+        width: max(200px, 98vw);
+    }
+
+    .main-table tr:nth-child(odd) {
+        background-color: #050713;
+    }
+
+    .main-table tr:nth-child(even) {
+        background-color: #53545c;
+    }
+
+    .main-background {
+        background-color: #050713;
     }
 }

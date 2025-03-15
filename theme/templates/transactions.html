@@ -25,5 +25,28 @@
             <h1> Transaction (Yesterday) </h1>
             <h1> Transactions per second (Last 20 blocks) </h1>
 		</div>
+
+		<!-- Transactions element -->
+		<div class="my-[20px]">
+			<table class="bg-zinc-500 border-collapse width-table-min-custom px-[2px] mx-auto">
+				<tr>
+					<th class="text-white"> Height </th>
+					<th class="w-[35vw] text-white"> Tx Hash </th>
+					<th class="w-[15vw] text-white"> Fee amount </th>
+					<th class="text-white"> Created at </th>
+				</tr>
+				{% for transaction in transactions %}
+					<tr class="border-t-2 border-solid border-neutral-300 text-center">
+						<td class="text-white">{{ transaction.height }}</td>
+						<td class="text-white">{{ transaction.tx_hash|slice:":7"}}...{{ transaction.tx_hash|slice:"-7:" }}</td>
+						<td class="text-white">{{ transaction.fee_amount }} {{ transaction.fee_denom }}</td>
+						<td class="text-white grid grid-rows-2">
+							<p>{{ transaction.created_at|date:"b j, Y" }}</p>
+							<p class="flex-shrink-0">{{ transaction.created_at|date:"H:i:s" }}</p>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
 	</body>
 </html>
