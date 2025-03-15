@@ -1,3 +1,4 @@
 Django
 django-tailwind
 graphene-django
+bs4
