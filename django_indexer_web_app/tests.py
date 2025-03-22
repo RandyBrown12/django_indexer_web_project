@@ -17,7 +17,7 @@ class NavigationBarTestCase(TestCase):
     def test_navigation_elements_present(self):
         """Test that all navigation elements are present in the navbar."""
         # Get the home page response
-        response = self.client.get(reverse('home'))
+        response = self.client.get(reverse('home_page'))
         self.assertEqual(response.status_code, 200)
 
         # Parse the HTML content
@@ -63,7 +63,7 @@ class NavigationBarTestCase(TestCase):
 
     def test_navigation_styling(self):
         """Test that the navigation bar has the correct styling classes."""
-        response = self.client.get(reverse('home'))
+        response = self.client.get(reverse('home_page'))
         soup = BeautifulSoup(response.content, 'html.parser')
         
         # Check nav element has correct classes
