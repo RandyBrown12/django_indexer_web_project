@@ -1,14 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from .models import Block, Transaction
+
 # Create your views here.
-def index_page(request):
+def home_page(request):
     return render(request, 'index.html',)
 
 def blocks_page(request):
-    blocks = Block.objects.all()
-    return render(request, 'blocks.html', {'blocks': blocks})
+    max_blocks = 50
+    blocks = Block.objects.order_by("-created_at")
+    paginator = Paginator(blocks, max_blocks)
+
+    blocks_page_number = request.GET.get("page")
+    page_blocks = paginator.get_page(blocks_page_number)
+    return render(request, 'blocks.html', {'blocks': page_blocks, 'block_page_count': paginator.num_pages, 'block_page_current': page_blocks.number})
 
 def transactions_page(request):
-    transactions = Transaction.objects.all()
-    return render(request, 'transactions.html', {'transactions': transactions})
+    max_transactions = 50
+    transactions = Transaction.objects.order_by("-created_at")
+    paginator = Paginator(transactions, max_transactions)
+
+    transactions_page_number = request.GET.get("page")
+    transactions_blocks = paginator.get_page(transactions_page_number)
+    print(paginator.num_pages)
+    return render(request, 'transactions.html', {'transactions': transactions_blocks})

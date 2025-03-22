@@ -65,6 +65,36 @@
 					</tr>
 				{% endfor %}
 			</table>
+
+			{% if block_page_count >= 0 %}
+			<div class="flex gap-2 justify-center">
+				<form action="/blocks/" method="get">
+					<input type="hidden" name="page" value="1">
+					<button> &lt;&lt; </button>
+				</form>
+				<form action="/blocks/" method="get">
+					{% if block_page_current > 1 %} 
+					<input type="hidden" name="page" value="{{ block_page_current|add:'-1' }}">
+					{% else %}
+					<input type="hidden" name="page" value="1">
+					{% endif %}
+					<button> &lt; </button>
+				</form>
+				<form action="/blocks/" method="get">
+					{% if block_page_current < block_page_count %} 
+						<input type="hidden" name="page" value="{{ block_page_current|add:'1' }}">
+					{% else %}
+						<input type="hidden" name="page" value="{{ block_page_count }}">
+					{% endif %}
+					<button> &gt; </button>
+				</form>
+				<form action="/blocks/" method="get">
+					<input type="hidden" name="page" value="{{ block_page_count }}">
+					<button> &gt;&gt; </button>
+				</form>
+			</div>
+			{% endif %}
+
 		</div>
 	</body>
 </html>
