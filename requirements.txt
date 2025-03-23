@@ -1,5 +1,5 @@
-Django
-django-tailwind
-graphene-django
-django-browser-reload
-bs4
+Django==5.1.6
+django-tailwind==3.8.0
+graphene-django==3.2.2
+django-browser-reload==1.18.0
+bs4==0.0.2
