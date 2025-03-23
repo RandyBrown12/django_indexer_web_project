@@ -1,4 +1,4 @@
-# Django Web Application for Indexer_Project
+# Django Web Application for EMRTS
 
 ## About Django Web Application:
 
