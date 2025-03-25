@@ -14,7 +14,7 @@ def blocks_page(request):
 
     blocks_page_number = request.GET.get("page")
     page_blocks = paginator.get_page(blocks_page_number)
-    return render(request, 'blocks.html', {'blocks': page_blocks, 'block_page_count': paginator.num_pages, 'block_page_current': page_blocks.number})
+    return render(request, 'blocks.html', {'blocks': page_blocks, 'block_page_count': paginator.num_pages, 'block_page_current': page_blocks.number, 'block_page_view_range': range(page_blocks.number - 1, page_blocks.number + 2)})
 
 def transactions_page(request):
     max_transactions = 50
