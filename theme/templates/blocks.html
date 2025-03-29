@@ -10,12 +10,28 @@
 	</head>
 
 	<body class="bg-gray-500 font-serif leading-normal tracking-normal">
-
 		<!-- Navigation Bar -->
-		<nav class="bg-zinc-600 p-3">
-			<a href="/" class="text-white px-4">Home</a>
-			<a href="/blocks/" class="text-white px-4">Blocks</a>
-			<a href="/transactions/" class="text-white px-4">Transactions</a>
+		<nav class="flex bg-zinc-600 p-3 items-center justify-between">
+			<div>
+				<a href="/" class="text-white px-4">Home</a>
+				<a href="/blocks/" class="text-white px-4">Blocks</a>
+				<a href="/transactions/" class="text-white px-4">Transactions</a>
+			</div>
+			<div>
+				<input type="text" id="blockId" placeholder="Search Blocks">
+				<button onClick="searchBlock()"class="border-2 px-[10px] py-[5px] bg-zinc-900 text-white"> Search </button>
+				<script>
+					function searchBlock() {
+						let blockId = document.getElementById("blockId").value;
+						if(isNaN(blockId)) {
+							window.alert("Enter a valid Number!");
+						} else {
+							redirectURL = `/blocks/${blockId}`;
+							window.location.href = redirectURL;
+						}
+					}
+				</script>
+			</div>
 		</nav>
 		
 		<!-- Blocks Summary element -->
@@ -24,19 +40,19 @@
 				<div class="flex flex-wrap gap-2">
 					<div class="border-2 border-white bg-black width-block-min-custom">
 						<h1 class="text-white whitespace-nowrap"> Block Height </h1>
-						<h2 class="text-white"> 123 </h2>
+						<h2 class="text-white"> 0 </h2>
 					</div>
 					<div class="border-2 border-white bg-black width-block-min-custom">
 						<h1 class="text-white whitespace-nowrap"> Blocks (Last 24 hours) </h1>
-						<h2 class="text-white"> 500 </h2>
+						<h2 class="text-white"> 0 </h2>
 					</div>
 					<div class="border-2 border-white bg-black width-block-min-custom">
 						<h1 class="text-white whitespace-nowrap text-wrap"> Transactions (Last 24 hours) </h1>
-						<h2 class="text-white"> 1000 </h2>
+						<h2 class="text-white"> 0 </h2>
 					</div>
 					<div class="border-2 border-white bg-black width-block-min-custom">
 						<h1 class="text-white whitespace-nowrap"> Block Time </h1>
-						<h2 class="text-white"> 2000 </h2>
+						<h2 class="text-white"> 0 </h2>
 					</div>
 				</div>
 			</div>

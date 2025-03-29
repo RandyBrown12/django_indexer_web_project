@@ -1,0 +1,47 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Indexer Project</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-500 font-serif leading-normal tracking-normal w-screen h-screen">
+
+		<!-- Navigation Bar -->
+		<nav class="bg-zinc-600 p-3">
+			<a href="/" class="text-white px-4">Home</a>
+			<a href="/blocks/" class="text-white px-4">Blocks</a>
+			<a href="/transactions/" class="text-white px-4">Transactions</a>
+		</nav>
+		
+        <div class="my-[20px]">
+            {% if transactions_count > 0 %}
+            <table class="border-collapse width-table-min-custom px-[2px] mx-auto main-table">
+                <tr>
+                    <th class="text-white font-light"> Height </th>
+                    <th class="w-[35vw] text-white font-light"> Tx Hash </th>
+                    <th class="w-[15vw] text-white font-light"> Payment </th>
+                    <th class="text-white font-light"> Created at </th>
+                </tr>
+				{% for transaction in transactions %}
+					<tr class="border-t-2 border-solid border-neutral-300 text-center">
+						<td class="text-white">{{ transaction.height }}</td>
+						<td class="text-white">{{ transaction.tx_hash|slice:":7"}}...{{ transaction.tx_hash|slice:"-7:" }}</td>
+						<td class="text-white">{{ transaction.fee_amount }} {{ transaction.fee_denom }}</td>
+                        <td class="text-white grid grid-rows-2">
+							<p>{{ transaction.created_at|date:"b j, Y" }}</p>
+							<p class="flex-shrink-0">{{ transaction.created_at|date:"H:i:s" }}</p>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+            {% else %}
+            <p class="flex items-center justify-center mt-[250px]"> No transactions have been found! </p>
+            {% endif %}
+        </div>
+	</body>
+</html>

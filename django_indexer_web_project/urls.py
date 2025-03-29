@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page, name="home_page"),
     path('blocks/', views.blocks_page, name="blocks_page"),
+    path('blocks/<int:height>', views.search_page, name="search_page"),
     path('transactions/', views.transactions_page, name="transactions_page"),
     path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
     path("__reload__/", include("django_browser_reload.urls"))
