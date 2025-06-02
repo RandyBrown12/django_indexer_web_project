@@ -1,4 +1,4 @@
-# Django Web Application for EMRTS
+# Django Web Application from EMRTS
 
 ## About Django Web Application:
 
